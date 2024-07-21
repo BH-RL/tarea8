@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Eventos e Indicendias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-input required [(ngModel)]="titulo" label="Titulo de incidencia" label-placement="floating" placeholder="ej: Golpe de estado"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input required [(ngModel)]="fecha" type="date" label="Fecha de la incidencia"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea required [(ngModel)]="descripcion" label="Descripcion" label-placement="stacked" placeholder="Tal dia vamos a hacer esto, esto y esto."></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button color="success" (click)="agregar(); eliminarcampos()">Enviar datos</ion-button>
+  <ion-button color="danger" (click)="eliminartodito()">Eliminar base de datos</ion-button>
+  <ion-button color="primary" (click)="eliminarTodoContenido()">Eliminar registro</ion-button>
+
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-label>{{ item.titulo }}</ion-label>
+      <ion-label>{{ item.fecha }}</ion-label>
+      <ion-label>{{ item.descripcion }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
